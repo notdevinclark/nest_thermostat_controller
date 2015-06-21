@@ -11,6 +11,8 @@ class EchoRequest
     case request_type
     when 'LaunchRequest'
       application_start_response
+    when 'IntentRequest'
+      application_intent_response
     else
       application_end_response
     end
@@ -40,6 +42,19 @@ class EchoRequest
           }
         },
         shouldEndSession: false
+      }
+    }.to_json
+  end
+
+  def application_intent_response
+    current_temperature = 74.23.round.humanize.gsub('-',' ')
+    { version: '1.0',
+      response: {
+        outputSpeech: {
+          type: 'PlainText',
+          text: "The current temperature in your home is #{current_temperature}."
+        },
+        shouldEndSession: true
       }
     }.to_json
   end
