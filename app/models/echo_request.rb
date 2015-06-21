@@ -52,7 +52,7 @@ class EchoRequest
       response: {
         outputSpeech: {
           type: 'PlainText',
-          text: "The current temperature in your home is #{current_temperature}."
+          text: "The current temperature in your home is #{current_temperature} degrees."
         },
         shouldEndSession: true
       }
