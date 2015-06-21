@@ -1,9 +1,5 @@
 class NestController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:create]
-  def index
-    render json: { hello: :world }.to_json
-  end
-
   def create
     render json: { version: '1.0',
                    response: {

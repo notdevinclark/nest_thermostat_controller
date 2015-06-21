@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :nest
+  resources :nest, only: [:create]
 end
